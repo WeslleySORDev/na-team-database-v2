@@ -40,20 +40,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [userNickname, setUserNickname] = useState<string | null>(null);
-  const [accessLevel, setAccessLevel] = useState<number>(0);
+  const [accessLevel, setAccessLevel] = useState<number>(1);
   const [userEmail, setUserEmail] = useState<string | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
       setUser(authUser);
-      setAccessLevel(0);
+      setAccessLevel(1);
       if (authUser) {
         setUserEmail(authUser.email || null);
         const userDocRef = doc(db, "users", authUser.uid);
         const docSnap = await getDoc(userDocRef);
         if (docSnap.exists()) {
           setUserNickname(docSnap.data()?.nickname || null);
-          setAccessLevel(docSnap.data()?.accessLevel || 0);
+          setAccessLevel(docSnap.data()?.accessLevel || 1);
           // Verifica se o email está salvo e salva se não estiver
           if (!docSnap.data()?.email && authUser.email) {
             await setDoc(
@@ -64,10 +64,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           }
         } else {
           setUserNickname(null);
-          setAccessLevel(0);
+          setAccessLevel(1);
           await setDoc(userDocRef, {
             nickname: null,
-            accessLevel: 0,
+            accessLevel: 1,
             email: authUser.email || null,
           });
         }
@@ -96,12 +96,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (!docSnap.exists()) {
         await setDoc(userDocRef, {
           nickname: null,
-          accessLevel: 0,
+          accessLevel: 1,
           email: user.email || null,
         });
       } else {
         setUserNickname(docSnap.data()?.nickname || null);
-        setAccessLevel(docSnap.data()?.accessLevel || 0);
+        setAccessLevel(docSnap.data()?.accessLevel || 1);
         if (!docSnap.data()?.email && user.email) {
           await setDoc(userDocRef, { email: user.email }, { merge: true });
         }
@@ -118,7 +118,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     try {
       await firebaseSignOut(auth);
       setUserNickname(null);
-      setAccessLevel(0);
+      setAccessLevel(1);
       setUserEmail(null);
       window.location.reload();
     } catch (error) {
