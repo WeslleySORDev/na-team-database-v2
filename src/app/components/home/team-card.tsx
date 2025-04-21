@@ -64,7 +64,7 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
     return `${day}/${month}/${year}`;
   }
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-lg transition-shadow min-w-[288px]">
       <CardHeader>
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
@@ -73,10 +73,14 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
           </div>
           <CardDescription className="text-sm">
             <div className="flex flex-col gap-1">
-              {team.uid && (
+              {team.uid ? (
                 <h4 className="text-sm font-bold">
                   Criador:{" "}
                   {loadingCreatorNickname ? "Carregando..." : creatorNickname}
+                </h4>
+              ) : (
+                <h4 className="text-sm font-bold">
+                  Criador: <span className="line-through font-extrabold">Desconhecido</span>
                 </h4>
               )}
               <h4 className="text-sm font-bold">
@@ -98,7 +102,8 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
                 <Image
                   src={characterImages[charName] || "/placeholder.svg"}
                   alt={charName}
-                  fill
+                  width={80}
+                  height={80}
                   className="object-cover"
                   style={{ objectFit: "cover" }}
                 />
@@ -106,9 +111,7 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
             ))}
           </div>
           {team.description && (
-            <p className="text-sm text-gray-600 mt-3 line-clamp-2">
-              {team.description}
-            </p>
+            <p className="text-sm mt-3 line-clamp-2">{team.description}</p>
           )}
         </div>
       </CardContent>

@@ -27,7 +27,8 @@ export function LoginButton() {
                   <Image
                     src={user.photoURL}
                     alt={user.displayName || userNickname || "User Avatar"}
-                    fill
+                    width={32}
+                    height={32}
                     className="object-cover"
                   />
                 ) : (
