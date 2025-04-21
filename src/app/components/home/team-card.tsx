@@ -79,7 +79,7 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
             <div className="flex flex-col gap-1">
               {team.type && (
                 <Badge
-                  className="sm:text-sm w-full select-none"
+                  className="text-xs sm:text-sm w-full select-none"
                   variant={team.type === "ladder" ? "default" : "secondary"}
                 >
                   {team.type.charAt(0).toUpperCase() + team.type.slice(1)}
