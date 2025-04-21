@@ -68,8 +68,15 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
       <CardHeader>
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-xl">{team.name}</CardTitle>
-            {team.type && <Badge>{team.type}</Badge>}
+            <CardTitle className="text-xl line-clamp-1">{team.name}</CardTitle>
+            {team.type && (
+              <Badge
+                className="sm:text-sm"
+                variant={team.type === "ladder" ? "destructive" : "default"}
+              >
+                {team.type.charAt(0).toUpperCase() + team.type.slice(1)}
+              </Badge>
+            )}
           </div>
           <CardDescription className="text-sm">
             <div className="flex flex-col gap-1">
@@ -80,7 +87,10 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
                 </h4>
               ) : (
                 <h4 className="text-sm font-bold">
-                  Criador: <span className="line-through font-extrabold">Desconhecido</span>
+                  Criador:{" "}
+                  <span className="line-through font-extrabold">
+                    Desconhecido
+                  </span>
                 </h4>
               )}
               <h4 className="text-sm font-bold">
@@ -97,7 +107,7 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
             {team.characters.map((charName, index) => (
               <div
                 key={index}
-                className="relative w-20 h-20 rounded-full overflow-hidden"
+                className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-offset-2 ring-offset-background ring-foreground"
               >
                 <Image
                   src={characterImages[charName] || "/placeholder.svg"}
