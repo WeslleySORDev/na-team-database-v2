@@ -40,7 +40,10 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
             createdAt: doc.data()?.createdAt?.toDate().getTime() || Date.now(),
           } as Team)
       );
-      setTeams(fetchedTeams);
+      const orderedTeams = [...fetchedTeams].sort(
+        (a, b) => b.createdAt - a.createdAt
+      );
+      setTeams(orderedTeams);
     });
     return () => unsubscribe();
   }, []);
