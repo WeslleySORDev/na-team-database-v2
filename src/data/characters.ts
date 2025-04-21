@@ -1,5 +1,7 @@
 import { Character } from "@/types/character";
 
+export const version = 2;
+
 export const CHARACTERS: Character[] = [
   {
     name: "Uzumaki Naruto",
@@ -162,22 +164,22 @@ export const CHARACTERS: Character[] = [
         url: "https://i.imgur.com/Sv53VXt.png",
       },
       {
-        name: "Sasuke Hide",
+        name: "Swift Block",
         description:
           "This skill makes Uchiha Sasuke <Defense>invulnerable<Defense> for 1 turn.",
         descriptionBR:
           "Essa habilidade faz Uchiha Sasuke <Defense>invulnerável<Defense> por 1 turno.",
         energy: ["Random"],
-        classes: ["Mental", "Instant"],
+        classes: ["Physical", "Instant"],
         cooldown: 4,
-        url: "https://i.imgur.com/DqY78Vo.png",
+        url: "https://i.imgur.com/F29QZe1.png",
       },
       {
         name: "Passive: Cursed Seal Awakening",
         description:
-          "When Sasuke <Improvements>reaches 50 health<Improvements> for the first time, Cursed Seal will awaken, granting Sasuke <Defense>35% unpierceable damage reduction<Defense> permanently. During this time, Sasuke's skills <Classes>cannot be countered<Classes> or <Classes>reflected<Classes> and <SkillName>'Sharingan'<SkillName> will also make the enemy unable to <Defense>reduce damage<Defense> or <Defense>become invulnerable<Defense>.",
+          "When Sasuke <Improvements>reaches 50 health<Improvements> for the first time, Cursed Seal will awaken, granting Sasuke <Defense>25% unpierceable damage reduction<Defense> permanently. During this time, Sasuke's skills <Classes>cannot be countered<Classes> or <Classes>reflected<Classes> and <SkillName>'Sharingan'<SkillName> will also make the enemy unable to <Defense>reduce damage<Defense> or <Defense>become invulnerable<Defense>.",
         descriptionBR:
-          "Quando Sasuke <Improvements>atingir 50 de vida<Improvements> pela primeira vez, a Marca da Maldição será despertada, concedendo a Sasuke <Defense>35% de redução de dano impenetrável<Defense> permanentemente. Durante esse tempo, as habilidades de Sasuke <Classes>não poderão ser anuladas<Classes> ou <Classes>refletidas<Classes>, e <SkillName>'Sharingan'<SkillName> também fará com que o inimigo não possa <Defense>reduzir dano<Defense> ou <Defense>se tornar invulnerável<Defense>.",
+          "Quando Sasuke <Improvements>atingir 50 de vida<Improvements> pela primeira vez, a Marca da Maldição será despertada, concedendo a Sasuke <Defense>25% de redução de dano impenetrável<Defense> permanentemente. Durante esse tempo, as habilidades de Sasuke <Classes>não poderão ser anuladas<Classes> ou <Classes>refletidas<Classes>, e <SkillName>'Sharingan'<SkillName> também fará com que o inimigo não possa <Defense>reduzir dano<Defense> ou <Defense>se tornar invulnerável<Defense>.",
         energy: [],
         classes: ["Passive", "Instant", "_$1", "_$2", "_$3", "_$4"],
         cooldown: 0,
@@ -612,7 +614,7 @@ export const CHARACTERS: Character[] = [
           "Neji se torna <Defense>invulnerável<Defense> por 1 turno enquanto irá <Damage>causar 15 de dano<Damage> a todos os inimigos. No próximo turno, <SkillName>'Eight Trigram Sixty-Four Palms'<SkillName> irá <Improvements>custar 1 bloodline e 1 random chakra<Improvements>.",
         energy: ["Blood"],
         classes: ["Chakra", "Melee", "Instant", "Unique"],
-        cooldown: 1,
+        cooldown: 2,
         url: "https://i.imgur.com/SbXg9y7.png",
       },
       {
@@ -5296,9 +5298,9 @@ export const CHARACTERS: Character[] = [
       {
         name: "Sand Summoning",
         description:
-          "Gaara and his allies gain 10 destructible defense permanently. When first used, Gaara's skills will deal 300% damage. On the second use, Gaara's skills will deal 500% damage. This skill can only be used twice.",
+          "Gaara and his allies gain 10 destructible defense permanently. Permanently, 'Desert Missile' will deal 15 additional damage and 'Desert Prison' will deal 20 additional damage. This skill can only be used twice.",
         descriptionBR:
-          "Gaara and his allies gain 10 destructible defense permanently. When first used, Gaara's skills will deal 300% damage. On the second use, Gaara's skills will deal 500% damage. This skill can only be used twice.",
+          "Gaara and his allies gain 10 destructible defense permanently. Permanently, 'Desert Missile' will deal 15 additional damage and 'Desert Prison' will deal 20 additional damage. This skill can only be used twice.",
         energy: ["Random"],
         classes: ["Chakra", "Instant", "Unique"],
         cooldown: 2,
@@ -5420,6 +5422,60 @@ export const CHARACTERS: Character[] = [
         classes: ["Physical", "Instant", "Helpful"],
         cooldown: 4,
         url: "https://i.imgur.com/QQ3JUKI.png",
+      },
+    ],
+  },
+  {
+    name: "Uzuki Yugao",
+    url: "https://i.imgur.com/mCMFKuP.png",
+    description:
+      "A member of Konoha's Anbu faction, Yugao was the lover of Gekkou Hayate before his untimely death, and is a hard-working, dedicated, and tender person. Yugao fights using powerful genjutsu-enhanced swordsmanship, and is also proficient in the use of sealing techniques to disable her enemies.",
+    descriptionBR:
+      "Membro da Anbu de Konoha, Yugao foi amante de Gekkou Hayate antes de sua morte prematura, sendo uma pessoa dedicada, esforçada e gentil. Yugao luta usando uma poderosa esgrima aprimorada por genjutsu, e também é proficiente no uso de técnicas de selamento para incapacitar seus inimigos.",
+    skills: [
+      {
+        name: "Hazy Moon Night",
+        description:
+          "Yugao covers herself in a haze, and strikes one enemy, <Damage>dealing 25 piercing damage<Damage> to them. For 1 turn, if <Invisible>Yugao<Invisible> or an <Invisible>ally<Invisible> <Classes>uses a new skill<Classes> on the target of <SkillName>'Hazy Moon Night'<SkillName>, they will become <Defense>invulnerable<Defense> for 1 turn. This skill triggers once per ally.",
+        descriptionBR:
+          "Yugao se cobre com uma névoa e atinge um inimigo, <Damage>causando 25 de dano perfurante<Damage> a ele. Por 1 turno, se <Invisible>Yugao<Invisible> ou um <Invisible>aliado<Invisible> <Classes>usar uma nova habilidade<Classes> no alvo de <SkillName>'Hazy Moon Night'<SkillName>, ele se tornará <Defense>invulnerável<Defense> por 1 turno. Essa habilidade é ativada uma vez por aliado.",
+        energy: ["Gen"],
+        classes: ["Mental", "Melee", "Instant"],
+        cooldown: 1,
+        url: "https://i.imgur.com/IHUyz1z.png",
+      },
+      {
+        name: "Crescent Moon Strike",
+        description:
+          "Yugao performs a graceful sword slash, <Damage>dealing 15 piercing damage<Damage> to one enemy. This skill will <Improvements>deal 15 additional damage<Improvements> if <SkillName>'Hazy Moon Night'<SkillName> was used on the previous turn.",
+        descriptionBR:
+          "Yugao realiza um elegante corte com sua espada, <Damage>causando 15 de dano perfurante<Damage> a um inimigo. Essa habilidade irá <Improvements>causar 15 de dano adicional<Improvements> se <SkillName>'Hazy Moon Night'<SkillName> foi usada no turno anterior.",
+        energy: ["Random"],
+        classes: ["Physical", "Melee", "Instant"],
+        cooldown: 0,
+        url: "https://i.imgur.com/qJupUm4.png",
+      },
+      {
+        name: "Sealing Technique",
+        description:
+          "Yugao negates one enemy's abilities, <Damage>dealing 20 affliction damage<Damage> to them. For 2 turns, that enemy will be <Improvements>invulnerable<Improvements> to <Classes>helpful skills<Classes> and their <Classes>harmful skills<Classes> will be <Effects>stunned<Effects>. During this time, they will <Improvements>receive 10 additional damage<Improvements> from <Classes>non-affliction skills<Classes>.",
+        descriptionBR:
+          "Yugao nega as habilidades de um inimigo, <Damage>causando 20 de dano aflitivo<Damage> a ele. Por 2 turnos, esse inimigo se tornará <Improvements>invulnerável<Improvements> a <Classes>habilidades defensivas<Classes> e suas <Classes>habilidades ofensivas<Classes> serão <Effects>atordoadas<Effects>. Durante esse tempo, ele irá <Improvements>receber 10 de dano adicional<Improvements> de <Classes>habilidades não-aflitivas<Classes>.",
+        energy: ["Nin", "Gen"],
+        classes: ["Chakra", "Ranged", "Instant", "Affliction"],
+        cooldown: 2,
+        url: "https://i.imgur.com/bBuPuWp.png",
+      },
+      {
+        name: "Yugao Hide",
+        description:
+          "This skill makes Uzuki Yugao <Defense>invulnerable<Defense> for 1 turn.",
+        descriptionBR:
+          "Essa habilidade faz Uzuki Yugao <Defense>invulnerável<Defense> por 1 turno.",
+        energy: ["Random"],
+        classes: ["Mental", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/83oXFJy.png",
       },
     ],
   },
@@ -6383,7 +6439,7 @@ export const CHARACTERS: Character[] = [
         url: "https://i.imgur.com/AlxaN71.jpg",
       },
       {
-        name: "Snake Coil",
+        name: "Sasuke: Snake Coil",
         description:
           "Uchiha Sasuke (S) unleashes a group of snakes to coil around one enemy dealing 15 damage and stunning their physical or melee Skills for 1 turn. After this skill is used it becomes chidori Nagashi. ",
         descriptionBR:
@@ -7153,6 +7209,71 @@ export const CHARACTERS: Character[] = [
     ],
   },
   {
+    name: "Uchiha Shisui (S)",
+    url: "https://i.imgur.com/1VX4Blm.png",
+    description:
+      "A member of the prestigious Uchiha clan, and the best friend of Uchiha Itachi; Shisui is a highly trained ninja that is utterly devoted to Konoha. Shisui is one of the few known ninjas capable of using one the most powerful genjutsu: Koto Amatsukami.",
+    descriptionBR:
+      "Um membro do prestigiado clã Uchiha e melhor amigo de Uchiha Itachi, Shisui é um ninja altamente treinado e completamente devoto a Konoha. Shisui é um dos poucos ninjas conhecidos capazes de usar um dos genjutsus mais poderosos: Koto Amatsukami.",
+    skills: [
+      {
+        name: "Shisui: Susanoo",
+        description:
+          "Shisui activates his still immature Susanoo, <Defense>gaining 45 destructible defense<Defense>. During this time, this skill will be <Effects>replaced<Effects> by <SkillName>'Tsukumo'<SkillName>. Using this skill will <Classes>reset<Classes> the stacks of <SkillName>'Tsukumo'<SkillName>.",
+        descriptionBR:
+          "Shisui ativa seu Susanoo ainda imaturo, <Defense>recebendo 45 de defesa destrutível<Defense>. Durante esse tempo, esta habilidade será <Effects>substituída<Effects> por <SkillName>'Tsukumo'<SkillName>. Usar esta habilidade <Classes>reiniciará<Classes> os stacks de <SkillName>'Tsukumo'<SkillName>.",
+        energy: ["Blood"],
+        classes: ["Chakra", "Instant", "Unique"],
+        cooldown: 2,
+        url: "https://i.imgur.com/QxRwz1E.png",
+      },
+      {
+        name: "Body Flicker",
+        description:
+          "For 2 turns, if a <Classes>new harmful skill is used<Classes> on Shisui, he will become <Defense>invulnerable<Defense> to all other skills for the <Classes>rest of that turn<Classes> and will <Damage>deal 15 damage<Damage> to the enemy that used the harmful skill. <Invisible>This skill is invisible<Invisible>.",
+        descriptionBR:
+          "Por 2 turnos, se <Classes>uma nova habilidade ofensiva<Classes> for usada contra Shisui, ele se tornará <Defense>invulnerável<Defense> a todas as outras habilidades pelo <Classes>restante daquele turno<Classes> e irá <Damage>causar 15 de dano<Damage> ao inimigo que usou a habilidade ofensiva. <Invisible>Essa habilidade é invisível<Invisible>.",
+        energy: ["Random"],
+        classes: ["Physical", "Instant"],
+        cooldown: 1,
+        url: "https://i.imgur.com/5gNbKHY.png",
+      },
+      {
+        name: "Kotoamatsukami",
+        description:
+          "Shisui activates one of the most powerful genjutsu and targets one enemy. For 1 turn, the first <Classes>harmful skill used<Classes> by that enemy will also be <Effects>applied<Effects> on a <Classes>random member<Classes> of that enemy's team. The following turn, the target will be <Damage>dealt 35 piercing damage<Damage>. <Invisible>This skill is invisible<Invisible> and <Classes>ignores invulnerability<Classes>.",
+        descriptionBR:
+          "Shisui ativa um dos genjutsus mais poderosos e marca um inimigo. Por 1 turno, a primeira <Classes>habilidade ofensiva usada<Classes> por esse inimigo também será <Effects>aplicada<Effects> a um <Classes>membro aleatório<Classes> do time inimigo. No próximo turno, o alvo irá <Damage>receber 35 de dano perfurante<Damage>. <Invisible>Essa habilidade é invisível<Invisible> e <Classes>ignora invulnerabilidade<Classes>.",
+        energy: ["Gen", "Random"],
+        classes: ["Mental", "Ranged", "Instant", "Unique"],
+        cooldown: 0,
+        url: "https://i.imgur.com/9I5NyG6.png",
+      },
+      {
+        name: "Shisui Intercept",
+        description:
+          "This skill makes Uchiha Shisui (S) <Defense>invulnerable<Defense> for 1 turn.",
+        descriptionBR:
+          "Essa habilidade faz Uchiha Shisui (S) <Defense>invulnerável<Defense> por 1 turno.",
+        energy: ["Random"],
+        classes: ["Physical", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/yRilqsE.png",
+      },
+      {
+        name: "Tsukumo",
+        description:
+          "Shisui activates his Susanoo's power, sending out a barrage of chakra needles <Damage>dealing 15 damage<Damage> to all enemies and <Effects>reducing<Effects> their <Classes>non-affliction damage<Classes> by 5. For each turn that <SkillName>'Shisui: Susanoo'<SkillName> is activated, the <Effects>damage reducing<Effects> effect will <Improvements>last 1 additional turn<Improvements>.",
+        descriptionBR:
+          "Shisui ativa o poder do seu Susanoo, lançando uma rajada de agulhas de chakra que irá <Damage>causar 15 de dano<Damage> a todos os inimigos e <Effects>reduzir<Effects> em 5 o <Classes>dano não-aflitivo<Classes> deles. Para cada turno que <SkillName>'Shisui: Susanoo'<SkillName> estiver ativado, o efeito de <Effects>redução de dano<Effects> irá <Improvements>durar 1 turno adicional<Improvements>.",
+        energy: ["Blood"],
+        classes: ["Chakra", "Ranged", "Instant", "Unique"],
+        cooldown: 0,
+        url: "https://i.imgur.com/uDo2Jec.png",
+      },
+    ],
+  },
+  {
     name: "Deidara (S)",
     url: "https://i.imgur.com/d3cdtXc.jpg",
     description:
@@ -7174,9 +7295,9 @@ export const CHARACTERS: Character[] = [
       {
         name: "Explosives - Small, Medium, Large",
         description:
-          "Small Explosives: Does 20 piercing damage to one enemy and ignores invulnerability. Medium Explosives: Does 30 damage to one enemy. Large Explosives: Does 25 damage to all enemies.",
+          "Small Explosives: Does 20 piercing damage to one enemy and ignores invulnerability. <br> Medium Explosives: Does 30 damage to one enemy. <br> Large Explosives: Does 25 damage to all enemies.",
         descriptionBR:
-          "Small Explosives: Does 20 piercing damage to one enemy and ignores invulnerability. Medium Explosives: Does 30 damage to one enemy. Large Explosives: Does 25 damage to all enemies.",
+          "Small Explosives: Does 20 piercing damage to one enemy and ignores invulnerability. <br> Medium Explosives: Does 30 damage to one enemy. <br> Large Explosives: Does 25 damage to all enemies.",
         energy: ["Nin"],
         classes: ["Chakra", "Instant", "Ranged", "Unique"],
         cooldown: 0,
@@ -7347,9 +7468,9 @@ export const CHARACTERS: Character[] = [
       {
         name: "Needle Shot, Arm Trap, 100 Puppets",
         description:
-          "1) Needle Shot deals 10 damage to one enemy. Additionally, the target takes 5 affliction damage every turn after*. 2) Arm Trap deals 10 affliction damage for 4 turns to one enemy. 3) 100 Puppets deals 20 damage to all enemies.",
+          "1) Needle Shot deals 10 damage to one enemy. Additionally, the target takes 5 affliction damage every turn after*. <br> 2) Arm Trap deals 10 affliction damage for 4 turns to one enemy. <br> 3) 100 Puppets deals 20 damage to all enemies.",
         descriptionBR:
-          "1) Needle Shot deals 10 damage to one enemy. Additionally, the target takes 5 affliction damage every turn after*. 2) Arm Trap deals 10 affliction damage for 4 turns to one enemy. 3) 100 Puppets deals 20 damage to all enemies.",
+          "1) Needle Shot deals 10 damage to one enemy. Additionally, the target takes 5 affliction damage every turn after*. <br> 2) Arm Trap deals 10 affliction damage for 4 turns to one enemy. <br> 3) 100 Puppets deals 20 damage to all enemies.",
         energy: ["Random", "Random"],
         classes: ["Physical", "Instant", "Ranged", "Unique", "Affliction"],
         cooldown: 0,
@@ -7358,9 +7479,9 @@ export const CHARACTERS: Character[] = [
       {
         name: "Tail Strike, Iron Sand, Fire-Water",
         description:
-          "1) Tail Strike deals 20 damage to one enemy. Additionally, they take 5 affliction damage every turn after.* 2) Iron Sand has the same effects as Tail Strike but targets all enemies. 3) Fire-Water deals 50 damage to one enemy.",
+          "1) Tail Strike deals 20 damage to one enemy. Additionally, they take 5 affliction damage every turn after.* <br> 2) Iron Sand has the same effects as Tail Strike but targets all enemies. <br> 3) Fire-Water deals 50 damage to one enemy.",
         descriptionBR:
-          "1) Tail Strike deals 20 damage to one enemy. Additionally, they take 5 affliction damage every turn after.* 2) Iron Sand has the same effects as Tail Strike but targets all enemies. 3) Fire-Water deals 50 damage to one enemy.",
+          "1) Tail Strike deals 20 damage to one enemy. Additionally, they take 5 affliction damage every turn after.* <br> 2) Iron Sand has the same effects as Tail Strike but targets all enemies. <br> 3) Fire-Water deals 50 damage to one enemy.",
         energy: ["Blood", "Nin"],
         classes: ["Physical", "Instant", "Ranged", "Unique", "Affliction"],
         cooldown: 2,
@@ -8350,7 +8471,7 @@ export const CHARACTERS: Character[] = [
   },
   {
     name: "Shinobi Alliance Sakura (S)",
-    url: "https://i.imgur.com/SPCmzSX.png",
+    url: "https://i.imgur.com/jvCtfmp.png",
     description:
       "With her extensive training under Tsunade for the last two and a half years, Sakura has gained a greater understanding of healing and the human body. While Sakura's physical strength and healing prowess have both increased, her greatest ability is a powerful chakra storing seal taught to her by Tsunade.",
     descriptionBR:
@@ -8761,22 +8882,22 @@ export const CHARACTERS: Character[] = [
   },
   {
     name: "Shinobi Alliance Hinata (S)",
-    url: "https://i.imgur.com/YmDxo63.png",
+    url: "https://i.imgur.com/Dnxsrpq.png",
     description:
       "Hinata will also take part in the war. Together with her allies, she will destroy any enemy that tries to attack using her new technique, Gentle Step Twin Lion Fists, along with her Byakugan.",
     descriptionBR:
       "Hinata will also take part in the war. Together with her allies, she will destroy any enemy that tries to attack using her new technique, Gentle Step Twin Lion Fists, along with her Byakugan.",
     skills: [
       {
-        name: "Twin Lion Fists: Assault",
+        name: "Sixty-Four Palms",
         description:
-          "Hinata uses a high-level secret gentle fist technique, dealing 10 affliction damage to one enemy and removing all stacks of 'Byakugan: Enhanced Vision' from them. During 'Byakugan: Enhanced Vision', if the target uses a new harmful skill, 'Chakra Lion Attack' will be applied on them.",
+          "Hinata delivers a series of attacks to one enemy, dealing 10 affliction damage to them and removing all stacks of 'Byakugan: Enhanced Vision' from them. During 'Byakugan: Enhanced Vision', if the target uses a new harmful skill, 'Chakra Lion Attack' will be applied on them.",
         descriptionBR:
-          "Hinata uses a high-level secret gentle fist technique, dealing 10 affliction damage to one enemy and removing all stacks of 'Byakugan: Enhanced Vision' from them. During 'Byakugan: Enhanced Vision', if the target uses a new harmful skill, 'Chakra Lion Attack' will be applied on them.",
+          "Hinata delivers a series of attacks to one enemy, dealing 10 affliction damage to them and removing all stacks of 'Byakugan: Enhanced Vision' from them. During 'Byakugan: Enhanced Vision', if the target uses a new harmful skill, 'Chakra Lion Attack' will be applied on them.",
         energy: ["Nin"],
         classes: ["Chakra", "Melee", "Instant", "Affliction", "Unique"],
         cooldown: 0,
-        url: "https://i.imgur.com/du8fNRS.png",
+        url: "https://i.imgur.com/CLqNirF.png",
       },
       {
         name: "Gentle Step Twin Lion Fists",
@@ -8787,14 +8908,14 @@ export const CHARACTERS: Character[] = [
         energy: ["Blood", "Nin"],
         classes: ["Chakra", "Melee", "Instant", "Unique"],
         cooldown: 0,
-        url: "https://i.imgur.com/KHpgLP8.png",
+        url: "https://i.imgur.com/tOKsmOK.png",
       },
       {
         name: "Byakugan: Enhanced Vision",
         description:
-          "Hinata takes advantage of her Byakugan and its enhanced vision, improving her skills for 3 turns. During this time, any enemy that uses a new harmful skill will receive 5 additional damage from 'Twin Lion Fists: Assault' permanently. This skill cannot be countered and it ends if Hinata is killed.",
+          "Hinata takes advantage of her Byakugan and its enhanced vision, improving her skills for 3 turns. During this time, any enemy that uses a new harmful skill will receive 5 additional damage from 'Sixty-Four Palms' permanently. This skill cannot be countered and it ends if Hinata is killed.",
         descriptionBR:
-          "Hinata takes advantage of her Byakugan and its enhanced vision, improving her skills for 3 turns. During this time, any enemy that uses a new harmful skill will receive 5 additional damage from 'Twin Lion Fists: Assault' permanently. This skill cannot be countered and it ends if Hinata is killed.",
+          "Hinata takes advantage of her Byakugan and its enhanced vision, improving her skills for 3 turns. During this time, any enemy that uses a new harmful skill will receive 5 additional damage from 'Sixty-Four Palms' permanently. This skill cannot be countered and it ends if Hinata is killed.",
         energy: [],
         classes: ["Mental", "Ranged", "Instant", "Unique"],
         cooldown: 3,
@@ -8809,7 +8930,7 @@ export const CHARACTERS: Character[] = [
         energy: ["Random"],
         classes: ["Mental", "Instant", "Unique"],
         cooldown: 4,
-        url: "https://i.imgur.com/LF0IBjh.png",
+        url: "https://i.imgur.com/h0HY5xh.png",
       },
       {
         name: "Chakra Lion Attack",
@@ -8886,6 +9007,168 @@ export const CHARACTERS: Character[] = [
         classes: ["Physical", "Melee", "Instant", "Harmful"],
         cooldown: 0,
         url: "https://i.imgur.com/STBBoKZ.png",
+      },
+    ],
+  },
+  {
+    name: "Shinobi Alliance Gaara (S)",
+    url: "https://i.imgur.com/LgN8ClX.png",
+    description:
+      "Despite his youth and inexperience, the young Kazekage is made Commander-in-Chief of the Shinobi Alliance at the outbreak of the Fourth Shinobi World War. Fearlessly carrying this great responsibility, Gaara is ready to prove himself to the world, empowered by the loving spirit of his mother hidden within his sand.",
+    descriptionBR:
+      "Apesar de sua juventude e inexperiência, o jovem Kazekage é nomeado Comandante Supremo da Aliança Shinobi com o início da Quarta Grande Guerra Ninja. Carregando essa grande responsabilidade sem medo, Gaara está pronto para se provar ao mundo, fortalecido pelo espírito amoroso de sua mãe oculto em sua areia.",
+    skills: [
+      {
+        name: "Sand Binding Prison",
+        description:
+          "Gaara <Damage>deals 30 piercing damage<Damage> to one enemy and <Effects>stuns<Effects> their <Classes>non helpful-mental skills<Classes> for 1 turn. During <SkillName>'Desert Layered Imperial Funeral Seal'<SkillName>, this skill will <Improvements>deal 10 additional damage<Improvements>. During <SkillName>'Mother's Absolute Defense'<SkillName>, this skill's <Effects>stunning effect<Effects> will <Improvements>last 1 additional turn<Improvements>.",
+        descriptionBR:
+          "Gaara <Damage>causa 30 de dano perfurante<Damage> a um inimigo e <Effects>atordoa<Effects> as <Classes>habilidades não-defensivas-mentais<Classes> dele por 1 turno. Durante <SkillName>'Desert Layered Imperial Funeral Seal'<SkillName>, essa habilidade irá <Improvements>causar 10 de dano adicional<Improvements>. Durante <SkillName>'Mother's Absolute Defense'<SkillName>, o <Effects>efeito de atordoamento<Effects> dessa habilidade irá <Improvements>durar 1 turno adicional<Improvements>.",
+        energy: ["Blood", "Random"],
+        classes: ["Chakra", "Ranged", "Instant", "Unique"],
+        cooldown: 1,
+        url: "https://i.imgur.com/uF7Wicm.png",
+      },
+      {
+        name: "Desert Layered Imperial Funeral Seal",
+        description:
+          "Gaara <Damage>deals 15 piercing damage<Damage> to all enemies. For 2 turns, any enemy that <Classes>uses a new harmful skill<Classes> will be <Damage>dealt 5 piercing damage<Damage> and will have the <Improvements>cost of their skills increased by 1 random<Improvements> for 1 turn.",
+        descriptionBR:
+          "Gaara <Damage>causa 15 de dano perfurante<Damage> a todos os inimigos. Por 2 turnos, qualquer inimigo que <Classes>usar uma nova habilidade ofensiva<Classes> irá <Damage>receber 5 de dano perfurante<Damage> e terá o <Improvements>custo de suas habilidades aumentado em 1 chakra aleatório<Improvements> por 1 turno.",
+        energy: ["Nin"],
+        classes: ["Chakra", "Ranged", "Instant"],
+        cooldown: 3,
+        url: "https://i.imgur.com/JchmOml.png",
+      },
+      {
+        name: "Mother's Absolute Defense",
+        description:
+          "Gaara grants his team <Defense>15 permanent destructible defense<Defense>. For 2 turns, if Gaara or an ally <Classes>is targeted by a new harmful skill<Classes>, they will <Defense>gain 5 permanent destructible defense<Defense> and the <Improvements>cost of their skills will be decreased by 1 random<Improvements> for 1 turn.",
+        descriptionBR:
+          "Gaara concede à sua equipe <Defense>15 de defesa destrutível permanente<Defense>. Por 2 turnos, se Gaara ou um aliado <Classes>for alvo de uma nova habilidade ofensiva<Classes>, eles <Defense>irão ganhar 5 de defesa destrutível<Defense> permanente e o <Improvements>custo de suas habilidades será reduzido em 1 chakra aleatório<Improvements> por 1 turno.",
+        energy: ["Nin"],
+        classes: ["Chakra", "Ranged", "Instant"],
+        cooldown: 3,
+        url: "https://i.imgur.com/ul7CqtD.png",
+      },
+      {
+        name: "Sand Wall",
+        description:
+          "This skill makes Shinobi Alliance Gaara (S) <Defense>invulnerable<Defense> for 1 turn.",
+        descriptionBR:
+          "Essa habilidade faz Shinobi Alliance Gaara (S) <Defense>invulnerável<Defense> por 1 turno.",
+        energy: ["Random"],
+        classes: ["Physical", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/FFiJvY1.png",
+      },
+    ],
+  },
+  {
+    name: "Shinobi Alliance Temari (S)",
+    url: "https://i.imgur.com/gCW8OWG.png",
+    description:
+      "At the outset of the Fourth Shinobi World War, Temari is placed in the Fourth Division. Although Gaara is officially in command of the division and Shikamaru is in Gaara's proxy, Temari is the one who leads the division on the battlefield, including personally commanding the division's Wind Release combat unit.",
+    descriptionBR:
+      "No início da Quarta Grande Guerra Ninja, Temari é colocada na Quarta Divisão. Embora Gaara seja oficialmente o comandante da divisão e Shikamaru atue como seu substituto, é Temari quem lidera a divisão no campo de batalha, incluindo o comando direto da unidade de combate com Liberação de Vento.",
+    skills: [
+      {
+        name: "Third Moon Unleash",
+        description:
+          "Temari unleashes her fan with all three moons revealed. For 4 turns, Temari's skilLs will <Improvements>cost 1 less random chakra<Improvements>. During this time, any enemy that <Classes>uses a new skill on Temari<Classes> will <Improvements>receive 10 additional damage<Improvements> from her permanently.",
+        descriptionBR:
+          "Temari libera seu leque com as três luas reveladas. Por 4 turnos, as habilidades de Temari terão o <Improvements>custo reduzido em 1 chakra aleatório<Improvements>. Durante esse tempo, qualquer inimigo que <Classes>usar uma nova habilidade em Temari<Classes> irá <Improvements>receber 10 de dano adicional<Improvements> permanentemente das habilidades dela.",
+        energy: ["Random"],
+        classes: ["Physical", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/pkik6W0.png",
+      },
+      {
+        name: "Temari Air Slash",
+        description:
+          "Temari sweeps her fan to create a slicing current of wind. For 1 turn, Temari becomes <Defense>invulnerable<Defense>, <Damage>deals 15 piercing damage<Damage> to one enemy and <Effects>stuns<Effects> their skills. The following turn, that enemy will <Damage>be dealt 15 damage<Damage>.",
+        descriptionBR:
+          "Temari varre seu leque para criar uma corrente de vento cortante. Por 1 turno, Temari se torna <Defense>invulnerável<Defense>, <Damage>causa 15 de dano perfurante<Damage> a um inimigo e <Effects>atordoa<Effects> as habilidades dele. No próximo turno, esse inimigo irá <Damage>receber 15 de dano<Damage>.",
+        energy: ["Nin", "Random"],
+        classes: ["Physical", "Ranged", "Action"],
+        cooldown: 1,
+        url: "https://i.imgur.com/Dg0om1m.png",
+      },
+      {
+        name: "Summoning: Kamatari",
+        description:
+          "Summoning Kamatari, Temari <Damage>deals 40 piercing damage<Damage> to one enemy <Invisible>ignoring invulnerability<Invisible>. After used, if the <Classes>target of this skill is killed<Classes>, Temari <Effects>gains 2 random chakra<Effects>.",
+        descriptionBR:
+          "Invocando Kamatari, Temari <Damage>causa 40 de dano perfurante<Damage> a um inimigo, <Invisible>ignorando invulnerabilidade<Invisible>. Após o uso, se o <Classes>alvo dessa habilidade for morto<Classes>, Temari <Effects>ganha 2 chakras aleatórios<Effects>.",
+        energy: ["Random", "Random", "Random"],
+        classes: ["Chakra", "Melee", "Instant", "Unique"],
+        cooldown: 2,
+        url: "https://i.imgur.com/BPoMd3i.png",
+      },
+      {
+        name: "Fan Heavy Block",
+        description:
+          "This skill makes Shinobi Alliance Temari (S) <Defense>invulnerable<Defense> for 1 turn.",
+        descriptionBR:
+          "Essa habilidade faz Shinobi Alliance Temari (S) <Defense>invulnerável<Defense> por 1 turno.",
+        energy: ["Random"],
+        classes: ["Physical", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/BZkHN4g.png",
+      },
+    ],
+  },
+  {
+    name: "Shinobi Alliance Kankuro (S)",
+    url: "https://i.imgur.com/mwNUU2i.png",
+    description:
+      "During the Fourth Shinobi World War, Kankurou is put in charge of the Surprise Attack Division, leading his squad as a guerrilla unit. Heading into the war, Kankurou greatly expanded his arsenal, adding the puppets of Sasori and his parents, and will fight using all his weapons in perfect tandem with each other.",
+    descriptionBR:
+      "Durante a Quarta Guerra Mundial Shinobi, Kankurou é colocado no comando da Divisão de Ataque Surpresa, liderando seu esquadrão como uma unidade de guerrilha. Indo para a guerra, Kankurou expandiu enormemente seu arsenal, adicionando as marionetes de Sasori e de seus pais, e irá lutar usando todas as suas armas em perfeita harmonia umas com as outras.",
+    skills: [
+      {
+        name: "Kankuro: Puppet Mastery",
+        description:
+          "Kankuro prepares his puppets, <Defense>gaining 30 unpierceable damager reduction<Defense>. If Kankuro is <Classes>targeted<Classes> by a <Classes>new harmful non-affliction damaging skill<Classes>, he will <Effects>lose<Effects> 5 <Defense>points of damage reduction<Defense> from this skill. If used while active, it will be <Effects>re-aplied<Effects>.",
+        descriptionBR:
+          "Kankurou prepara suas marionetes, <Defense>ganhando 30 pontos de redução de dano impenetrável<Defense>. Se Kankurou <Classes>for alvo<Classes> de uma <Classes>nova habilidade ofensiva não-affliction que cause dano<Classes>, ele irá <Effects>perder<Effects> 5 <Defense>pontos de redução de dano<Defense> dessa habilidade. Se usada enquanto estiver ativa, essa habilidade será <Effects>reaplicada<Effects>.",
+        energy: [],
+        classes: ["Chakra", "Instant"],
+        cooldown: 2,
+        url: "https://i.imgur.com/P8xtAYw.png",
+      },
+      {
+        name: "Puppet Manipulation: Sasori",
+        description:
+          "Kankuro targets all enemies, <Damage>dealing damage<Damage> to them equal the <Invisible>amount of damage reduction points<Invisible> that <SkillName>'Kankuro: Puppet Mastery'<SkillName> currently has. If <SkillName>'Kankuro: Puppet Mastery'<SkillName> has 20 points of damage reduction or less, this skill will <Improvements>cost 1 less random chakra<Improvements>.",
+        descriptionBR:
+          "Kankurou atinge todos os inimigos, <Damage>causando dano<Damage> a eles igual à <Invisible>quantidade de pontos de redução de dano<Invisible> que <SkillName>'Kankuro: Puppet Mastery'<SkillName> possui no momento. Se <SkillName>'Kankuro: Puppet Mastery'<SkillName> tiver 20 pontos de redução de dano ou menos, essa habilidade irá <Improvements>custar 1 chakra aleatório a menos<Improvements>.",
+        energy: ["Random", "Random"],
+        classes: ["Physical", "Instant"],
+        cooldown: 0,
+        url: "https://i.imgur.com/TzVDSc7.png",
+      },
+      {
+        name: "Puppet Manipulation: Father and Mother",
+        description:
+          "Kankuro protects himself or an ally, <Defense>granting them 10 destructible defense<Defense> for each <Invisible>5 points of damage reduction<Invisible> that <SkillName>'Kankuro: Puppet Mastery'<SkillName> currently has. If <SkillName>'Kankuro: Puppet Mastery'<SkillName> has 15 points of damage reduction or less, this skill will <Improvements>cost 1 less random chakra<Improvements>.",
+        descriptionBR:
+          "Kankurou protege a si mesmo ou um aliado, <Defense>concedendo a eles 10 de defesa destrutível<Defense> para cada <Invisible>5 pontos de redução de dano<Invisible> que <SkillName>'Kankurou: Puppet Mastery'<SkillName> possui no momento. Se <SkillName>'Kankurou: Puppet Mastery'<SkillName> tiver 15 pontos de redução de dano ou menos, essa habilidade irá <Improvements>custar 1 chakra aleatório a menos<Improvements>.",
+        energy: ["Random", "Random"],
+        classes: ["Physical", "Ranged", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/m4YyqL8.png",
+      },
+      {
+        name: "Kankuro Sealing Technique",
+        description:
+          "This skill makes Shinobi Alliance Kankuro (S) <Defense>invulnerable<Defense> for 1 turn.",
+        descriptionBR:
+          "Essa habilidade faz Shinobi Alliance Kankuro (S) <Defense>invulnerável<Defense> por 1 turno.",
+        energy: ["Random"],
+        classes: ["Chakra", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/tp9rMsp.png",
       },
     ],
   },
@@ -9727,6 +10010,245 @@ export const CHARACTERS: Character[] = [
         classes: ["Mental", "Instant", "Helpful"],
         cooldown: 4,
         url: "https://imgur.com/tFwLc31.jpg",
+      },
+    ],
+  },
+  {
+    name: "Edo Tensei Itachi (S)",
+    url: "https://i.imgur.com/Diw5QwE.png",
+    description:
+      "One of the five past Akatsuki members reanimated by Kabuto during the Fourth Shinobi World War, Itachi sees this as an opportunity to pursue his true goals and set things right with Naruto and Sasuke. Freeing himself from Kabuto's shackles, Itachi unleashes the full power of the Uchiha with his deathless body.",
+    descriptionBR:
+      "Um dos cinco antigos membros da Akatsuki reanimados por Kabuto durante a Quarta Grande Guerra Ninja, Itachi vê isso como uma oportunidade para perseguir seus verdadeiros objetivos e acertar as contas com Naruto e Sasuke. Libertando-se das correntes de Kabuto, Itachi libera todo o poder dos Uchiha com seu corpo imortal.",
+    skills: [
+      {
+        name: "Itachi Mangekyou Sharingan",
+        description:
+          "Itachi becomes invulnerable, enhancing <SkillName>'Mastered Amaterasu'<SkillName> and <SkillName>'Mastered Tsukuyomi'<SkillName>, <Improvements>increasing their cooldowns by 2<Improvements> and <Improvements>doubling their costs<Improvements>, and also enabling <SkillName>'Izanami'<SkillName> to be used. Itachi will <Damage>take 15 affliction damage<Damage>* each turn, ignore <Effects>healing<Effects>, and may use this skill again for no cost to cancel it.",
+        descriptionBR:
+          "Itachi se torna invulnerável, aprimorando <SkillName>'Mastered Amaterasu'<SkillName> e <SkillName>'Mastered Tsukuyomi'<SkillName>, <Improvements>aumentando seus cooldowns em 2<Improvements> e <Improvements>dobrando seus custo<Improvements>s, além de permitir o uso de <SkillName>'Izanami'<SkillName>. Itachi irá <Damage>receber 15 de dano aflitivo<Damage>* por turno, irá ignorar <Effects>cura<Effects> e poderá usar essa habilidade novamente sem custo para cancelá-la.",
+        energy: ["Blood"],
+        classes: ["Mental", "Instant", "Unique", "Affliction*"],
+        cooldown: 0,
+        url: "https://i.imgur.com/uDwhjPw.png",
+      },
+      {
+        name: "Mastered Amaterasu",
+        description:
+          "Itachi burns one enemy with his flames, <Damage>dealing 15 affliction damage<Damage> to them and each following turn, they will <Damage>receive 5 affliction damage<Damage> a turn. This skill does not stack. During <SkillName>'Itachi Mangekyou Sharingan'<SkillName>, this skill will <Improvements>target all enemies<Improvements> and <Improvements>deal double damage<Improvements>.",
+        descriptionBR:
+          "Itachi queima um inimigo com suas chamas, <Damage>causando 15 de dano aflitivo<Damage> a ele e, a cada turno seguinte, ele irá <Damage>receber 5 de dano aflitivo<Damage> por turno. Essa habilidade não acumula. Durante <SkillName>'Itachi Mangekyou Sharingan'<SkillName>, essa habilidade irá <Improvements>atingir todos os inimigos<Improvements> e <Improvements>causar o dobro de dano<Improvements>.",
+        energy: ["Nin"],
+        classes: ["Chakra", "Ranged", "Instant", "Unique", "Affliction"],
+        cooldown: 1,
+        url: "https://i.imgur.com/nm11dNQ.png",
+      },
+      {
+        name: "Mastered Tsukuyomi",
+        description:
+          "Itachi mentally tortures one enemy for 3 days and nights in a matter of seconds, <Damage>dealing 20 damage<Damage> to them and <Effects>stunning<Effects> them for 1 turn. During <SkillName>'Itachi Mangekyou Sharingan'<SkillName>, this skill will <Improvements>last 3 turns<Improvements>.",
+        descriptionBR:
+          "Itachi tortura mentalmente um inimigo por 3 dias e noites em questão de segundos, <Damage>causando 20 de dano<Damage> a ele e <Effects>atordoando-o<Effects> por 1 turno. Durante <SkillName>'Itachi Mangekyou Sharingan'<SkillName>, essa habilidade irá <Improvements>durar 3 turnos<Improvements>.",
+        energy: ["Gen"],
+        classes: ["Mental", "Ranged", "Instant", "Unique"],
+        cooldown: 1,
+        url: "https://i.imgur.com/RJxIqlm.png",
+      },
+      {
+        name: "Edo Tensei Susanoo",
+        description:
+          "Using his Susanoo, Itachi becomes <Defense>invulnerable<Defense> for 1 turn, and <Defense>gains 10 destructible defense<Defense> for <Classes>each 20 health he has lost<Classes>. While Itachi has this defense, this skill becomes <SkillName>'Itachi Susanoo: Yasaka Magatama'<SkillName>. This skill <Effects>ends<Effects> during <SkillName>'Itachi Mangekyou Sharingan'<SkillName> and becomes <SkillName>'Izanami'<SkillName>. ",
+        descriptionBR:
+          "Usando seu Susanoo, Itachi se torna <Defense>invulnerável<Defense> por 1 turno e <Defense>ganha 10 de defesa destrutível<Defense> para <Classes>cada 20 de vida que ele perdeu<Classes>. Enquanto Itachi tiver essa defesa, essa habilidade se torna <SkillName>'Itachi Susanoo: Yasaka Magatama'<SkillName>. Essa habilidade <Effects>termina<Effects> durante <SkillName>'Itachi Mangekyou Sharingan'<SkillName> e se torna <SkillName>'Izanami'<SkillName>.",
+        energy: ["Random"],
+        classes: ["Chakra", "Instant", "Unique"],
+        cooldown: 4,
+        url: "https://i.imgur.com/shC2QMt.png",
+      },
+      {
+        name: "Itachi Susanoo: Yasaka Magatama",
+        description:
+          "Itachi unleashes his strongest long-range technique, <Damage>dealing piercing damage<Damage> to an enemy equal to the current <Classes>amount of destructible defense<Classes> that <SkillName>'Edo Tensei Susanoo'<SkillName> currently has. Afterwards, <SkillName>'Edo Tensei Susanoo'<SkillName> will be <Effects>removed<Effects>.",
+        descriptionBR:
+          "Itachi libera sua técnica de longo alcance mais poderosa, causando dano perfurante igual à atual <Classes>quantidade de defesa destrutível<Classes> de <SkillName>'Edo Tensei Susanoo'<SkillName> a um inimigo. Em seguida, <SkillName>'Edo Tensei Susanoo'<SkillName> será <Effects>removido<Effects>.",
+        energy: ["Random"],
+        classes: ["Chakra", "Ranged", "Instant", "Unique"],
+        cooldown: 0,
+        url: "https://i.imgur.com/ojDBnzb.png",
+      },
+      {
+        name: "Izanami",
+        description:
+          "Itachi puts an enemy into a mental loop for 3 turns. Each time that enemy <Classes>uses a new skill<Classes>, they will be <Defense>countered<Defense>, and if that enemy <Classes>does not use a new skill<Classes>, <SkillName>'Izanami'<SkillName> duration will be <Improvements>extended<Improvements> by 1 turn. This skill cannot be <Invisible>removed<Invisible>, <Invisible>countered <Invisible>or <Invisible>reflected<Invisible> and may <Classes>affect uncounterable skills<Classes>.",
+        descriptionBR:
+          "Itachi coloca um inimigo em um ciclo mental por 3 turnos. Toda vez que esse inimigo <Classes>usar uma nova habilidade<Classes>, ela será <Defense>anulada<Defense>, e se esse inimigo <Classes>não usar uma nova habilidade<Classes>, a duração de <SkillName>'Izanami'<SkillName> será <Improvements>estendida<Improvements> em 1 turno. Essa habilidade não pode ser <Invisible>removida<Invisible>, <Invisible>anulada<Invisible> ou <Invisible>refletida<Invisible> e pode <Classes>afetar habilidades que não podem ser anuladas<Classes>.",
+        energy: ["Blood", "Blood"],
+        classes: ["Mental", "Ranged", "Instant", "Unique"],
+        cooldown: 9,
+        url: "https://i.imgur.com/XWy6O2o.png",
+      },
+    ],
+  },
+  {
+    name: "Edo Tensei Yota (S)",
+    url: "https://i.imgur.com/CgXEKRN.png",
+    description:
+      "A young child from a nomadic clan, Yota died at an early age, but was revived through Edo Tensei by Orochimaru and kept alive for years as a test subject. A curious, naïve, and sensitive boy, Yota can manipulate the weather around himself, and is deployed by Kabuto to fight in the Fourth Shinobi World War.",
+    descriptionBR:
+      "Uma jovem criança de um clã nômade, Yota morreu ainda muito novo, mas foi revivido pelo Edo Tensei de Orochimaru e mantido vivo por anos como cobaia. Um garoto curioso, ingênuo e sensível, Yota é capaz de manipular o clima ao seu redor, sendo enviado por Kabuto para lutar na Quarta Guerra Mundial Ninja.",
+    skills: [
+      {
+        name: "Weather Manipulation Rain: Water Wave",
+        description:
+          "Yota cries, and a sudden wave crashes down on an enemy, <Damage>dealing 15 damage<Damage> to them, and after <Classes>targets 0 random enemies<Classes>, <Damage>dealing 15 damage<Damage> to each one of them. This skill will <Improvements>target 1 additional random enemy<Improvements> for each <SkillName>'Rain Stack'<SkillName> that Yota <Effects>has<Effects>. Afterwards, Yota gains 1 <SkillName>'Rain Stack'<SkillName>.",
+        descriptionBR:
+          "Yota chora, e uma onda repentina despenca sobre um inimigo, <Damage>causando 15 de dano<Damage> a ele, e depois <Classes>atinge 0 inimigos aleatórios<Classes>, <Damage>causando 15 de dano<Damage> a cada um deles. Esta habilidade irá <Improvements>atingir 1 inimigo aleatório adicional<Improvements> para cada <SkillName>'Rain Stack'<SkillName> que Yota <Effects>possuir<Effects>. Em seguida, Yota ganha 1 <SkillName>'Rain Stack'<SkillName>.",
+        energy: ["Random"],
+        classes: ["Chakra", "Ranged", "Instant"],
+        cooldown: 0,
+        url: "https://i.imgur.com/DfmBvYh.png",
+      },
+      {
+        name: "Weather Manipulation Rain: Water Spheres",
+        description:
+          "Yota <Defense>gains 15 points of damage reduction<Defense>* and <Damage>deals 15 damage<Damage> to all enemies for 2 turns. Each turn, <Effects>Yota cries<Effects> and gains 1 <SkillName>'Rain Stack'<SkillName>. During this time, If <Classes>Yota is stunned<Classes>, he will <Effects>cry<Effects> even more, gaining 1 additional <SkillName>'Rain Stack'<SkillName> and <Defense>healing 15 health<Defense>.",
+        descriptionBR:
+          "Yota <Defense>ganha 15 pontos de redução de dano<Defense>* e <Damage>causa 15 de dan<Damage>o a todos os inimigos por 2 turnos. A cada turno, <Effects>Yota chora<Effects> e ganha 1 <SkillName>'Rain Stack'<SkillName>. Durante esse tempo, se <Classes>Yota for atordoado<Classes>, ele <Effects>chorará<Effects> ainda mais, ganhando 1 <SkillName>'Rain Stack'<SkillName> adicional e <Defense>curando 15 de vida<Defense>.",
+        energy: ["Blood", "Random"],
+        classes: ["Chakra", "Ranged", "Action", "Instant*"],
+        cooldown: 2,
+        url: "https://i.imgur.com/yxaP0DL.png",
+      },
+      {
+        name: "Wather Manipulation Lightning",
+        description:
+          "Yota sends a devastating lightning strike to obliterate one enemy, <Damage>dealing 20 damage<Damage> to them for each <SkillName>'Rain Stack'<SkillName> Yota currently has.",
+        descriptionBR:
+          "Yota envia um devastador raio para aniquilar um inimigo, <Damage>causando 20 de dano<Damage> a ele para cada <SkillName>'Rain Stack'<SkillName> que Yota possui atualmente.",
+        energy: ["Blood", "Blood"],
+        classes: ["Chakra", "Ranged", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/QsFoxa8.png",
+      },
+      {
+        name: "Yota is happy don't bother him",
+        description:
+          "This skill makes Edo Tensei Yota (S) <Defense>invulnerable<Defense> for 1 turn.",
+        descriptionBR:
+          "Essa habilidade faz Edo Tensei Yota (S) <Defense>invulnerável<Defense> por 1 turno.",
+        energy: ["Random"],
+        classes: ["Chakra", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/YgrzO7k.png",
+      },
+      {
+        name: "Rain Stack",
+        description:
+          "Each time Yota cries, he intensifies the rain on the battlefield, gaining 1 Rain Stack and enhancing her skills.",
+        descriptionBR:
+          "Toda vez que Yota chora, ele intensifica a chuva no campo de batalha, ganhando 1 Rain Stack e fortalecendo suas habilidades.",
+        energy: [],
+        classes: ["Mental", "Instant"],
+        cooldown: 0,
+        url: "https://i.imgur.com/BjIbSuX.png",
+      },
+    ],
+  },
+  {
+    name: "White Snake Kabuto (S)",
+    url: "https://i.imgur.com/5BT5OxV.png",
+    description:
+      "Following Orochimaru's death at the hands of Sasuke, Kabuto got access to his master's DNA, implanting it in his body and eventually gaining many freakish, snake-like features. In his new form, Kabuto allies himself with Tobi to wage war on the shinobi world, controlling the Edo Tensei forces from the shadows.",
+    descriptionBR:
+      "Following Orochimaru's death at the hands of Sasuke, Kabuto got access to his master's DNA, implanting it in his body and eventually gaining many freakish, snake-like features. In his new form, Kabuto allies himself with Tobi to wage war on the shinobi world, controlling the Edo Tensei forces from the shadows.",
+    skills: [
+      {
+        name: "Snake Coil",
+        description:
+          "Kabuto uses his snake to coil around an enemy's body, <Damage>dealing 10 affliction damage<Damage> to them permanently. During this time, if that enemy <Classes>uses a new skill<Classes>, Kabuto will <Defense>heal 15 health<Defense>. This skill stacks but will <Effects>end<Effects> if <Effects>used on a different enemy<Effects> or <Effects>if Kabuto is killed<Effects>.",
+        descriptionBR:
+          "Kabuto usa sua cobra para se enrolar ao redor de um inimigo, <Damage>causando 10 de dano aflitivo<Damage> a ele permanentemente. Durante esse tempo, se esse inimigo <Classes>usar uma nova habilidade<Classes>, Kabuto irá <Defense>curar 15 de vida<Defense>. Essa habilidade acumula, mas <Effects>termina<Effects> se for <Effects>usada em um inimigo diferente<Effects> ou <Effects>Kabuto morrer<Effects>.",
+        energy: ["Gen"],
+        classes: ["Physical", "Melee", "Instant", "Unique", "$_"],
+        cooldown: 1,
+        url: "https://i.imgur.com/RpxvvTS.png",
+      },
+      {
+        name: "Edo Tensei Technique",
+        description:
+          "<Improvements>Passive:<Improvements> While Kabuto is alive, <Classes>the first enemy to be killed<Classes> in the battlefield will become an <Invisible>Edo Tensei<Invisible> and will <Effects>replace<Effects> one of Kabuto's ally <Classes>if they die<Classes> or <Classes>if they are currently dead<Classes>, returning to <Defense>65 health<Defense>. <br> <Improvements>Active:<Improvements> Kabuto <Damage>deals 30 affliction damage<Damage> and <Effects>stuns harmful skills<Effects> for 1 turn.",
+        descriptionBR:
+          "<Improvements>Passivo:<Improvements> Enquanto Kabuto estiver vivo, <Classes>o primeiro inimigo a ser morto<Classes> no campo de batalha se tornará um <Invisible>Edo Tensei<Invisible> e <Effects>substituirá<Effects> um dos aliados de Kabuto <Classes>quando eles morrerem<Classes>, retornando com <Defense>65 de vida<Defense>.<br><Improvements>Ativo:<Improvements> Kabuto <Damage>causa 30 de dano aflitivo<Damage> e <Effects>atordoa habilidades ofensivas<Effects> por 1 turno.",
+        energy: ["Blood", "Random"],
+        classes: ["Chakra", "Melee", "Instant", "Unique", "Affliction"],
+        cooldown: 1,
+        url: "https://i.imgur.com/ZGjSk8L.png",
+      },
+      {
+        name: "Edo Tensei Summoning: Akatsuki",
+        description:
+          "Kabuto <Defense>gains 60 points of destructible defense<Defense>, and <Effects>replaces<Effects> his skills by the alternate version <Defense>until it is destroyed<Defense>. Kabuto will <Effects>ignore effects<Effects> that complety <Effects>destroy destructible defenses<Effects>.",
+        descriptionBR:
+          "Kabuto <Defense>ganha 60 pontos de defesa destrutível<Defense> e <Effects>substitui<Effects> suas habilidades pela versão alternativa <Defense>até que a defesa seja destruída<Defense>. Kabuto irá <Effects>ignorar efeitos<Effects> que completamente <Effects>destruam defesas destrutíveis<Effects>.",
+        energy: ["Blood", "Gen"],
+        classes: ["Mental", "Instant", "Unique"],
+        cooldown: 6,
+        url: "https://i.imgur.com/MthPEc2.png",
+      },
+      {
+        name: "White Snake Awakening",
+        description:
+          "This skill makes White Snake Kabuto (S) <Defense>invulnerable<Defense> for 1 turn.",
+        descriptionBR:
+          "Essa habilidade faz White Snake Kabuto (S) <Defense>invulnerável<Defense> por 1 turno.",
+        energy: ["Random"],
+        classes: ["Chakra", "Instant"],
+        cooldown: 4,
+        url: "https://i.imgur.com/VsAnPho.png",
+      },
+      {
+        name: "Edo Tensei: Clay Clone",
+        description:
+          "Kabuto targets one enemy for 1 turn. If that enemy <Classes>uses a new harmful skill<Classes>, they will be <Defense>countered<Defense> and will be <Damage>dealt 20 piercing damage<Damage>. <Invisible>This skill is invisible<Invisible>.",
+        descriptionBR:
+          "Kabuto marca um inimigo por 1 turno. Se esse inimigo <Classes>usar uma nova habilidade ofensiva<Classes>, ela será <Defense>anulada<Defense> e ele irá <Damage>receber 20 de dano perfurante<Damage>. <Invisible>Essa habilidade é invisível<Invisible>.",
+        energy: ["Nin"],
+        classes: ["Chakra", "Ranged", "Instant"],
+        cooldown: 2,
+        url: "https://i.imgur.com/Qxicvxf.png",
+      },
+      {
+        name: "Edo Tensei: Totsuka Blade",
+        description:
+          "Kabuto <Damage>deals 20 piercing damage<Damage> to one enemy and <Effects>removes 1 bloodline or genjutsu<Effects> from them.",
+        descriptionBR:
+          "Kabuto <Damage>causa 20 de dano perfurante<Damage> a um inimigo e <Effects>remove 1 bloodline ou genjutsu chakra<Effects> dele.",
+        energy: ["Tai"],
+        classes: ["Chakra", "Melee", "Instant"],
+        cooldown: 1,
+        url: "https://i.imgur.com/26upARf.png",
+      },
+      {
+        name: "Edo Tensei: Flame Mask",
+        description:
+          "Kabuto <Damage>deals 20 affliction damage<Damage> to one enemy and <Effects>stuns their helpful skills<Effects> for 1 turn.",
+        descriptionBR:
+          "Kabuto <Damage>causa 20 de dano aflitivo<Damage> a um inimigo e <Effects>atordoa as habilidades defensivas<Effects> dele por 1 turno.",
+        energy: ["Blood"],
+        classes: ["Chakra", "Ranged", "Instant", "Affliction"],
+        cooldown: 1,
+        url: "https://i.imgur.com/8bGrQGJ.png",
+      },
+      {
+        name: "Edo Tensei: Human Path",
+        description:
+          "Kabuto <Damage>steals 20 health<Damage> from one enemy and <Effects>stuns their harmful skills<Effects> for 1 turn.",
+        descriptionBR:
+          "Kabuto <Damage>rouba 20 de vida<Damage> de um inimigo e <Effects>atordoa as habilidades ofensivas<Effects> dele por 1 turno.",
+        energy: ["Gen"],
+        classes: ["Mental", "Melee", "Instant", "Affliction"],
+        cooldown: 1,
+        url: "https://i.imgur.com/P0LmdlZ.png",
       },
     ],
   },
