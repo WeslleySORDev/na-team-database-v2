@@ -16,6 +16,13 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import Image from "next/image";
 import { Eye } from "lucide-react";
+import { version } from "@/data/characters";
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@/components/ui/tooltip";
 
 type TeamCardProps = {
   team: Team;
@@ -69,14 +76,37 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
         <div className="flex flex-col gap-2">
           <div className="flex items-center justify-between">
             <CardTitle className="text-xl line-clamp-1">{team.name}</CardTitle>
-            {team.type && (
-              <Badge
-                className="sm:text-sm"
-                variant={team.type === "ladder" ? "destructive" : "default"}
-              >
-                {team.type.charAt(0).toUpperCase() + team.type.slice(1)}
-              </Badge>
-            )}
+            <div className="flex flex-col gap-1">
+              {team.type && (
+                <Badge
+                  className="sm:text-sm w-full select-none"
+                  variant={team.type === "ladder" ? "default" : "secondary"}
+                >
+                  {team.type.charAt(0).toUpperCase() + team.type.slice(1)}
+                </Badge>
+              )}
+              {team.type && (
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Badge
+                        className="sm:text-sm select-none"
+                        variant={
+                          team.version === version ? "default" : "secondary"
+                        }
+                      >
+                        {team.version === version ? "New" : "Outdated"}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent side="bottom">
+                      <p className="select-none">
+                        Esse time foi criado em uma versão diferente da atual!
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+              )}
+            </div>
           </div>
           <CardDescription className="text-sm">
             <div className="flex flex-col gap-1">
@@ -105,19 +135,27 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
         <div className="flex flex-col gap-4 sm:gap-6 items-center">
           <div className="flex justify-center items-center gap-2 sm:gap-4">
             {team.characters.map((charName, index) => (
-              <div
-                key={index}
-                className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-offset-2 ring-offset-background ring-foreground"
-              >
-                <Image
-                  src={characterImages[charName] || "/placeholder.svg"}
-                  alt={charName}
-                  width={80}
-                  height={80}
-                  className="object-cover"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
+              <TooltipProvider key={index}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="relative w-20 h-20 rounded-full overflow-hidden ring-2 ring-offset-2 ring-offset-background ring-foreground">
+                      <Image
+                        src={characterImages[charName] || "/placeholder.svg"}
+                        alt={charName}
+                        width={80}
+                        height={80}
+                        className="object-cover"
+                        style={{ objectFit: "cover" }}
+                      />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                      <p className="select-none">
+                        {charName}
+                      </p>
+                    </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             ))}
           </div>
           {team.description && (

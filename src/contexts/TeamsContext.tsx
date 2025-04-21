@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { db, auth } from "@/config/firebase"; // Importe a instância de autenticação
 import { Team } from "@/types/team";
+import { version } from "@/data/characters";
 
 interface TeamsContextType {
   teams: Team[];
@@ -68,6 +69,7 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
       characters: newTeam.characters,
       createdAt: Timestamp.now(), // Use Timestamp para melhor compatibilidade com Firestore
       uid: newTeam.uid,
+      version: version
     });
   };
 

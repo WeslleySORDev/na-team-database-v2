@@ -7,4 +7,5 @@ export type Team = {
   characters: string[];
   createdAt: number;
   uid: string;
+  version: number;
 };
