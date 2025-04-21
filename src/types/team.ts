@@ -8,4 +8,5 @@ export type Team = {
   createdAt: number;
   uid: string;
   version: number;
+  likes: string[];
 };

@@ -8,6 +8,10 @@ import {
   deleteDoc,
   onSnapshot,
   Timestamp,
+  getDoc,
+  updateDoc,
+  arrayRemove,
+  arrayUnion,
 } from "firebase/firestore";
 import { db, auth } from "@/config/firebase"; // Importe a instância de autenticação
 import { Team } from "@/types/team";
@@ -21,6 +25,7 @@ interface TeamsContextType {
     updatedTeam: Omit<Team, "id" | "createdAt">
   ) => Promise<void>;
   deleteTeam: (id: string) => Promise<void>;
+  toggleLike: (teamId: string) => Promise<void>;
 }
 
 const TeamsContext = createContext<TeamsContextType | undefined>(undefined);
@@ -49,7 +54,9 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
     return () => unsubscribe();
   }, []);
 
-  const addTeam = async (teamData: Omit<Team, "id" | "createdAt" | "uid">) => {
+  const addTeam = async (
+    teamData: Omit<Team, "id" | "createdAt" | "uid" | "likes">
+  ) => {
     if (!auth.currentUser?.uid) {
       console.error("Usuário não autenticado ao tentar criar um time.");
       return;
@@ -59,7 +66,9 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
       id: newTeamDocRef.id,
       ...teamData,
       createdAt: Date.now(),
-      uid: auth.currentUser.uid, // Salva o UID do usuário logado
+      uid: auth.currentUser.uid,
+      likes: [],
+      version: version,
     };
     await setDoc(newTeamDocRef, {
       name: newTeam.name,
@@ -67,9 +76,10 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
       type: newTeam.type,
       missions: newTeam.missions,
       characters: newTeam.characters,
-      createdAt: Timestamp.now(), // Use Timestamp para melhor compatibilidade com Firestore
+      createdAt: Timestamp.now(),
       uid: newTeam.uid,
-      version: version
+      likes: newTeam.likes,
+      version: version,
     });
   };
 
@@ -86,6 +96,7 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
         type: updatedTeamData.type,
         missions: updatedTeamData.missions,
         characters: updatedTeamData.characters,
+        likes: updatedTeamData.likes,
       },
       { merge: true }
     );
@@ -96,11 +107,37 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
     await deleteDoc(teamDocRef);
   };
 
+  const toggleLike = async (teamId: string) => {
+    if (!auth.currentUser?.uid) {
+      console.error("Usuário não autenticado ao tentar dar like.");
+      return;
+    }
+    const userId = auth.currentUser.uid;
+    const teamDocRef = doc(db, "teams", teamId);
+    const teamSnapshot = await getDoc(teamDocRef);
+
+    if (teamSnapshot.exists()) {
+      const currentLikes = teamSnapshot.data()?.likes || [];
+      const userLiked = currentLikes.includes(userId);
+
+      if (userLiked) {
+        await updateDoc(teamDocRef, {
+          likes: arrayRemove(userId),
+        });
+      } else {
+        await updateDoc(teamDocRef, {
+          likes: arrayUnion(userId),
+        });
+      }
+    }
+  };
+
   const value: TeamsContextType = {
     teams,
     addTeam,
     updateTeam,
     deleteTeam,
+    toggleLike,
   };
 
   return (

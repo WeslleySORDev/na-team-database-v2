@@ -165,7 +165,7 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
       </CardContent>
       <CardFooter className="mt-auto">
         <Button className="w-full" asChild>
-          <Link href={`/teams/${team.id}`}>
+          <Link href={`/team/${team.id}`}>
             <Eye className="mr-2 h-4 w-4" />
             Ver Detalhes
           </Link>
