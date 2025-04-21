@@ -35,7 +35,7 @@ export function LoginButton() {
                   <UserIcon className="h-5 w-5 text-white" />
                 )}
               </div>
-              <span>{userNickname || user?.displayName || "Usuário"}</span>
+              <span className="hidden sm:block">{userNickname || user?.displayName || "Usuário"}</span>
             </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56">
@@ -48,7 +48,7 @@ export function LoginButton() {
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
               <Link href="/my-teams" className="flex items-center space-x-2">
-                <Users className="mr-2 h-4 w-4" />
+                <Users className="mr-2" />
                 Meus Times
               </Link>
             </DropdownMenuItem>
@@ -68,8 +68,13 @@ export function LoginButton() {
           onClick={signInWithGoogle}
           variant="secondary"
         >
-          <User className="mr-2 h-4 w-4" />
-          Login com Google
+          <Image
+            src="./assets/google-icon.svg"
+            alt="Icone do google"
+            width={16}
+            height={16}
+          />
+          <span className="hidden sm:block sm:ml-2">Login com Google</span>
         </Button>
       )}
     </>
