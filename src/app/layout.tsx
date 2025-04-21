@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/app/components/header";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { TeamsProvider } from "@/contexts/TeamsContext";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -30,8 +31,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AuthProvider>
-            <Header />
-            {children}
+            <TeamsProvider>
+              <Header />
+              {children}
+            </TeamsProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>
