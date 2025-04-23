@@ -47,74 +47,6 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { NextPage } from "next";
 
-const energyColorComponent = (energy: string, energyIndex: number) => {
-  switch (energy) {
-    case "Gen":
-      return (
-        <div key={energyIndex}>
-          <div className="w-2.5 h-2.5 bg-[#ffffff]"></div>
-          <p className="sr-only">{energy}</p>
-        </div>
-      );
-    case "Blood":
-      return (
-        <div key={energyIndex}>
-          <div className="w-2.5 h-2.5 bg-[#df0001]"></div>
-          <p className="sr-only">{energy}</p>
-        </div>
-      );
-    case "Nin":
-      return (
-        <div key={energyIndex}>
-          <div className="w-2.5 h-2.5 bg-[#00a7df]"></div>
-          <p className="sr-only">{energy}</p>
-        </div>
-      );
-    case "Tai":
-      return (
-        <div key={energyIndex}>
-          <div className="w-2.5 h-2.5 bg-[#0cdd2c]"></div>
-          <p className="sr-only">{energy}</p>
-        </div>
-      );
-    default:
-      return (
-        <div key={energyIndex}>
-          <div className="w-2.5 h-2.5 bg-[#000000]"></div>
-          <p className="sr-only">{energy}</p>
-        </div>
-      );
-  }
-};
-
-export function formatDescription(description: string) {
-  return description
-    .replace(
-      /<Damage>(.*?)<Damage>/g,
-      '<span class="text-red-500 font-bold">$1</span>'
-    )
-    .replace(
-      /<Defense>(.*?)<Defense>/g,
-      '<span class="text-green-500 font-bold">$1</span>'
-    )
-    .replace(
-      /<Effects>(.*?)<Effects>/g,
-      '<span class="text-yellow-500 font-bold">$1</span>'
-    )
-    .replace(
-      /<Improvements>(.*?)<Improvements>/g,
-      '<span class="text-blue-500 font-bold">$1</span>'
-    )
-    .replace(
-      /<Classes>(.*?)<Classes>/g,
-      '<span class="text-purple-500 font-bold">$1</span>'
-    )
-    .replace(
-      /<SkillName>(.*?)<SkillName>/g,
-      '<span class="text-orange-500 font-bold">$1</span>'
-    );
-}
-
 interface Props {
   params: {
     id: string;
@@ -131,7 +63,74 @@ const TeamPage: NextPage<Props> = ({ params }: Props) => {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [creatorNickname, setCreatorNickname] = useState<string | null>(null);
   const teamId = params.id as string;
+  
+  const energyColorComponent = (energy: string, energyIndex: number) => {
+    switch (energy) {
+      case "Gen":
+        return (
+          <div key={energyIndex}>
+            <div className="w-2.5 h-2.5 bg-[#ffffff]"></div>
+            <p className="sr-only">{energy}</p>
+          </div>
+        );
+      case "Blood":
+        return (
+          <div key={energyIndex}>
+            <div className="w-2.5 h-2.5 bg-[#df0001]"></div>
+            <p className="sr-only">{energy}</p>
+          </div>
+        );
+      case "Nin":
+        return (
+          <div key={energyIndex}>
+            <div className="w-2.5 h-2.5 bg-[#00a7df]"></div>
+            <p className="sr-only">{energy}</p>
+          </div>
+        );
+      case "Tai":
+        return (
+          <div key={energyIndex}>
+            <div className="w-2.5 h-2.5 bg-[#0cdd2c]"></div>
+            <p className="sr-only">{energy}</p>
+          </div>
+        );
+      default:
+        return (
+          <div key={energyIndex}>
+            <div className="w-2.5 h-2.5 bg-[#000000]"></div>
+            <p className="sr-only">{energy}</p>
+          </div>
+        );
+    }
+  };
 
+  const formatDescription = (description: string) => {
+    return description
+      .replace(
+        /<Damage>(.*?)<Damage>/g,
+        '<span class="text-red-500 font-bold">$1</span>'
+      )
+      .replace(
+        /<Defense>(.*?)<Defense>/g,
+        '<span class="text-green-500 font-bold">$1</span>'
+      )
+      .replace(
+        /<Effects>(.*?)<Effects>/g,
+        '<span class="text-yellow-500 font-bold">$1</span>'
+      )
+      .replace(
+        /<Improvements>(.*?)<Improvements>/g,
+        '<span class="text-blue-500 font-bold">$1</span>'
+      )
+      .replace(
+        /<Classes>(.*?)<Classes>/g,
+        '<span class="text-purple-500 font-bold">$1</span>'
+      )
+      .replace(
+        /<SkillName>(.*?)<SkillName>/g,
+        '<span class="text-orange-500 font-bold">$1</span>'
+      );
+  };
   useEffect(() => {
     const foundTeam = teams.find((t) => t.id === teamId);
     if (foundTeam) {
