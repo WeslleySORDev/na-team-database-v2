@@ -22,7 +22,7 @@ import { useTeams } from "@/contexts/TeamsContext";
 import { CHARACTERS } from "@/data/characters";
 import { Team } from "@/types/team";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import {
   Dialog,
@@ -47,13 +47,12 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import { NextPage } from "next";
 
-interface Props {
-  params: {
-    id: string;
-  };
+interface RouteParams {
+  id: string;
+  [key: string]: string;
 }
 
-const TeamPage: NextPage<Props> = ({ params }: Props) => {
+const TeamPage: NextPage = () => {
   const router = useRouter();
   const { teams, deleteTeam, toggleLike } = useTeams();
   const { user, accessLevel } = useAuth();
@@ -62,8 +61,9 @@ const TeamPage: NextPage<Props> = ({ params }: Props) => {
   const [comment, setComment] = useState("");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [creatorNickname, setCreatorNickname] = useState<string | null>(null);
-  const teamId = params.id as string;
-  
+  const params = useParams<RouteParams>();
+  const teamId = params.id;
+
   const energyColorComponent = (energy: string, energyIndex: number) => {
     switch (energy) {
       case "Gen":
