@@ -45,6 +45,7 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
+import { NextPage } from "next";
 
 const energyColorComponent = (energy: string, energyIndex: number) => {
   switch (energy) {
@@ -114,9 +115,14 @@ export function formatDescription(description: string) {
     );
 }
 
-export default function TeamPage() {
+interface Props {
+  params: {
+    id: string;
+  };
+}
+
+const TeamPage: NextPage<Props> = ({ params }: Props) => {
   const router = useRouter();
-  const params = useParams();
   const { teams, deleteTeam, toggleLike } = useTeams();
   const { user, accessLevel } = useAuth();
   const [canDelete, setCanDelete] = useState(false);
@@ -472,4 +478,6 @@ export default function TeamPage() {
         </Card>
       </div>
     );
-}
+};
+
+export default TeamPage;
