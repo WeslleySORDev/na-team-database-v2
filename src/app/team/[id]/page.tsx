@@ -7,7 +7,6 @@ import {
   MessageSquare,
   Target,
   Trash2,
-  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,7 +24,6 @@ import { Team } from "@/types/team";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Dialog,
   DialogContent,
@@ -47,6 +45,74 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
+
+const energyColorComponent = (energy: string, energyIndex: number) => {
+  switch (energy) {
+    case "Gen":
+      return (
+        <div key={energyIndex}>
+          <div className="w-2.5 h-2.5 bg-[#ffffff]"></div>
+          <p className="sr-only">{energy}</p>
+        </div>
+      );
+    case "Blood":
+      return (
+        <div key={energyIndex}>
+          <div className="w-2.5 h-2.5 bg-[#df0001]"></div>
+          <p className="sr-only">{energy}</p>
+        </div>
+      );
+    case "Nin":
+      return (
+        <div key={energyIndex}>
+          <div className="w-2.5 h-2.5 bg-[#00a7df]"></div>
+          <p className="sr-only">{energy}</p>
+        </div>
+      );
+    case "Tai":
+      return (
+        <div key={energyIndex}>
+          <div className="w-2.5 h-2.5 bg-[#0cdd2c]"></div>
+          <p className="sr-only">{energy}</p>
+        </div>
+      );
+    default:
+      return (
+        <div key={energyIndex}>
+          <div className="w-2.5 h-2.5 bg-[#000000]"></div>
+          <p className="sr-only">{energy}</p>
+        </div>
+      );
+  }
+};
+
+export function formatDescription(description: string) {
+  return description
+    .replace(
+      /<Damage>(.*?)<Damage>/g,
+      '<span class="text-red-500 font-bold">$1</span>'
+    )
+    .replace(
+      /<Defense>(.*?)<Defense>/g,
+      '<span class="text-green-500 font-bold">$1</span>'
+    )
+    .replace(
+      /<Effects>(.*?)<Effects>/g,
+      '<span class="text-yellow-500 font-bold">$1</span>'
+    )
+    .replace(
+      /<Improvements>(.*?)<Improvements>/g,
+      '<span class="text-blue-500 font-bold">$1</span>'
+    )
+    .replace(
+      /<Classes>(.*?)<Classes>/g,
+      '<span class="text-purple-500 font-bold">$1</span>'
+    )
+    .replace(
+      /<SkillName>(.*?)<SkillName>/g,
+      '<span class="text-orange-500 font-bold">$1</span>'
+    );
+}
 
 export default function TeamPage() {
   const router = useRouter();
@@ -141,7 +207,7 @@ export default function TeamPage() {
             </div>
             <h1 className="text-3xl font-bold">{team.name}</h1>
             <p className="text-sm text-muted-foreground">
-              Time do{" "}
+              Criado por{" "}
               {creatorNickname ? (
                 creatorNickname
               ) : (
@@ -209,29 +275,50 @@ export default function TeamPage() {
               <Info className="h-4 w-4" />
               Informações
             </TabsTrigger>
-            <TabsTrigger value="missions" className="flex items-center gap-2">
-              <Target className="h-4 w-4" />
-              Missões
-            </TabsTrigger>
+            {team.type === "quick" ? (
+              <TabsTrigger value="missions" className="flex items-center gap-2">
+                <Target className="h-4 w-4" />
+                Missões
+              </TabsTrigger>
+            ) : null}
           </TabsList>
           <TabsContent value="info">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Descrição do time</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  {team.description ? (
+                    team.description
+                  ) : (
+                    <strong className="line-through">
+                      Esse time não possui descrição
+                    </strong>
+                  )}
+                </p>
+              </CardContent>
+            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               {team?.characters?.map((charName, index) => {
                 const character = CHARACTERS.find(
                   (c) => c.name === charName
                 ) as Character;
                 return (
                   <Card key={index} className="overflow-hidden">
-                    <div className="aspect-[3/2] relative bg-muted">
+                    <div className="relative">
                       <Image
                         src={character?.url || "/placeholder.svg"}
                         alt={character.name}
-                        fill
-                        className="object-cover"
+                        width={128}
+                        height={128}
+                        className="rounded-full m-auto"
                       />
                     </div>
                     <CardHeader>
-                      <CardTitle>{character.name}</CardTitle>
+                      <CardTitle className="text-center">
+                        {character.name}
+                      </CardTitle>
                       <CardDescription>
                         {character.descriptionBR}
                       </CardDescription>
@@ -260,28 +347,50 @@ export default function TeamPage() {
                             </AccordionTrigger>
                             <AccordionContent>
                               <div className="space-y-3 text-sm pl-8">
-                                <p>{skill.descriptionBR}</p>
+                                <p
+                                  dangerouslySetInnerHTML={{
+                                    __html: formatDescription(
+                                      skill.descriptionBR
+                                    ),
+                                  }}
+                                ></p>
                                 <Separator />
-                                <div className="flex flex-wrap gap-2">
-                                  {skill.energy.map((energy, energyIndex) => (
-                                    <Badge key={energyIndex} variant="outline">
-                                      {energy}
-                                    </Badge>
-                                  ))}
-                                  {skill.classes.map(
-                                    (className, classIndex) => (
-                                      <Badge
-                                        key={classIndex}
-                                        variant="secondary"
-                                      >
-                                        {className}
-                                      </Badge>
-                                    )
-                                  )}
+                                <div className="flex flex-col gap-2">
+                                  <div className="flex justify-between">
+                                    <p className="text-xs">
+                                      Cooldown: {skill.cooldown}
+                                    </p>
+                                    <div className="flex gap-1 items-center text-xs">
+                                      <span>Energy: </span>
+                                      {skill.energy.length > 0 ? (
+                                        skill.energy.map(
+                                          (energy, energyIndex) =>
+                                            energyColorComponent(
+                                              energy,
+                                              energyIndex
+                                            )
+                                        )
+                                      ) : (
+                                        <span>None</span>
+                                      )}
+                                    </div>
+                                  </div>
+                                  <div className="flex flex-col text-muted-foreground text-xs">
+                                    <span>Classes:</span>
+                                    <div className="flex flex-wrap gap-1 items-center">
+                                      {skill.classes.map(
+                                        (className, classIndex) => (
+                                          <span
+                                            className="underline"
+                                            key={classIndex}
+                                          >
+                                            {className}
+                                          </span>
+                                        )
+                                      )}
+                                    </div>
+                                  </div>
                                 </div>
-                                <p className="text-xs text-muted-foreground">
-                                  Cooldown: {skill.cooldown} turnos
-                                </p>
                               </div>
                             </AccordionContent>
                           </AccordionItem>
@@ -292,54 +401,40 @@ export default function TeamPage() {
                 );
               })}
             </div>
-            <Card>
-              <CardHeader>
-                <CardTitle>Sobre o Time</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  {team.description ? (
-                    team.description
+          </TabsContent>
+          {team.type === "quick" ? (
+            <TabsContent value="missions">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Missões</CardTitle>
+                  <CardDescription>
+                    Missões realizadas por este time
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {team.missions && team.missions.length > 0 ? (
+                    <ul className="space-y-2">
+                      {team.missions.map((mission, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center gap-2 p-2 rounded-md hover:bg-muted transition-colors"
+                        >
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium">
+                            {index + 1}
+                          </span>
+                          <span>{mission}</span>
+                        </li>
+                      ))}
+                    </ul>
                   ) : (
-                    <strong className="line-through">
-                      Esse time não possui descrição
-                    </strong>
+                    <p className="text-muted-foreground">
+                      Nenhuma missão registrada.
+                    </p>
                   )}
-                </p>
-              </CardContent>
-            </Card>
-          </TabsContent>
-          <TabsContent value="missions">
-            <Card>
-              <CardHeader>
-                <CardTitle>Missões</CardTitle>
-                <CardDescription>
-                  Missões realizadas por este time
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {team.missions && team.missions.length > 0 ? (
-                  <ul className="space-y-2">
-                    {team.missions.map((mission, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center gap-2 p-2 rounded-md hover:bg-muted transition-colors"
-                      >
-                        <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-medium">
-                          {index + 1}
-                        </span>
-                        <span>{mission}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-muted-foreground">
-                    Nenhuma missão registrada.
-                  </p>
-                )}
-              </CardContent>
-            </Card>
-          </TabsContent>
+                </CardContent>
+              </Card>
+            </TabsContent>
+          ) : null}
         </Tabs>
         <Card>
           <CardHeader className="flex flex-row items-center">

@@ -85,7 +85,8 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
                   {team.type.charAt(0).toUpperCase() + team.type.slice(1)}
                 </Badge>
               )}
-              {team.type && (
+              {/* Uma feat onde veria a versão do time, mas nao acho interessante visto que a atualização dos times são manuais */}
+              {/* {team.type && (
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -105,7 +106,7 @@ export function TeamCard({ team, characterImages }: TeamCardProps) {
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
-              )}
+              )} */}
             </div>
           </div>
           <CardDescription className="text-sm">

@@ -5,6 +5,9 @@ import { MyTeamList } from "../components/my-teams/my-team-list";
 import { useRouter } from "next/navigation";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 
 export default function MyTeams() {
   const { user } = useAuth();
@@ -40,21 +43,15 @@ export default function MyTeams() {
     fetchNickname();
   }, [user, db]);
 
-  useEffect(() => {
-    if (creatorNickname) {
-      console.log("Nickname do usuário:", creatorNickname);
-      // Você pode usar o creatorNickname onde precisar
-    }
-  }, [creatorNickname]);
-
   return (
     <main className="flex flex-col gap-4 px-4 sm:px-6 md:px-12 lg:px-32 py-8">
-      <div className="mb-10">
-        <h2 className="text-3xl font-bold mb-4">Meus Times</h2>
-        <p>
-          Visualize todos os times criados por você -{" "}
-          {creatorNickname ? creatorNickname : "Carregando..."}
-        </p>
+      <div className="flex justify-between mb-10">
+        <div>
+          <h2 className="text-3xl font-bold mb-4">Meus Times</h2>
+        </div>
+        <Button>
+          <Link className="flex items-center justify-center gap-2" href="/create-team"><Plus/> Criar novo time</Link>
+        </Button>
       </div>
       <MyTeamList />
     </main>
