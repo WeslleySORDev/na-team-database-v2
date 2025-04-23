@@ -463,7 +463,7 @@ export default function TeamPage() {
               <Button
                 type="submit"
                 disabled
-                // disabled={!comment.trim()}
+                // disabled={!comment.trim().}
               >
                 Enviar comentário
               </Button>
