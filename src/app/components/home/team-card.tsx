@@ -16,7 +16,6 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/config/firebase";
 import Image from "next/image";
 import { Eye } from "lucide-react";
-import { version } from "@/data/characters";
 import {
   TooltipProvider,
   Tooltip,

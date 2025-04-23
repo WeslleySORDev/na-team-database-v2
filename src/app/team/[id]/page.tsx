@@ -124,7 +124,6 @@ export default function TeamPage() {
   const [comment, setComment] = useState("");
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [creatorNickname, setCreatorNickname] = useState<string | null>(null);
-  const [loadingCreatorNickname, setLoadingCreatorNickname] = useState(true);
   const teamId = params.id as string;
 
   useEffect(() => {
@@ -145,7 +144,6 @@ export default function TeamPage() {
   useEffect(() => {
     if (team && team.uid) {
       const fetchCreatorNickname = async () => {
-        setLoadingCreatorNickname(true);
         try {
           const userDocRef = doc(db, "users", team.uid);
           const docSnap = await getDoc(userDocRef);
@@ -159,14 +157,11 @@ export default function TeamPage() {
         } catch (error) {
           console.error("Erro ao buscar nickname do criador:", error);
           setCreatorNickname("Erro ao Carregar");
-        } finally {
-          setLoadingCreatorNickname(false);
         }
       };
 
       fetchCreatorNickname();
     } else {
-      setLoadingCreatorNickname(false);
       setCreatorNickname(null);
     }
   }, [team, team?.uid]);

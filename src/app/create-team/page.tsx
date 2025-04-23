@@ -199,7 +199,7 @@ export default function CreateTeamPage() {
   const [isSaving, setIsSaving] = useState(false);
 
   const { addTeam } = useTeams();
-  const { user, accessLevel, loading } = useAuth();
+  const { user, loading } = useAuth();
 
   const handleCharacterSelect = (characterName: string) => {
     if (selectedCharacters.includes(characterName)) {
