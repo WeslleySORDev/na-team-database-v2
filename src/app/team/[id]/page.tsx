@@ -22,7 +22,7 @@ import { useTeams } from "@/contexts/TeamsContext";
 import { CHARACTERS } from "@/data/characters";
 import { Team } from "@/types/team";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import {
   Dialog,
